@@ -1,0 +1,253 @@
+:root {
+  --primary-color: #000;
+  --background-color: #fff;
+  --spacing-unit: 1.5rem;
+  --max-width: 1000px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'EB Garamond', serif;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  line-height: 1.6;
+  padding: var(--spacing-unit);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main {
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+header {
+  text-align: center;
+  margin: var(--spacing-unit) 0;
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+h1 {
+  font-family: 'Apple Garamond Light', sans-serif;
+  font-size: 5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: -1rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  /* text-transform: uppercase; */
+}
+
+#work {
+  margin: calc(var(--spacing-unit) * 2) 0;
+  text-align: center;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  padding: calc(var(--spacing-unit) * 2);
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+#work .work-item p {
+  opacity: 0.7;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-unit);
+  font-weight: 600;
+}
+
+.work-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-unit);
+}
+
+.work-item {
+  text-align: center;
+}
+
+.work-image {
+  aspect-ratio: 1;
+  margin-bottom: 0.8rem;
+  transition: transform 0.3s ease;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.work-image:hover {
+  transform: scale(1.025);
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.work-item h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+  margin-top: .8rem;
+}
+
+.work-item p {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+#about {
+  margin: calc(var(--spacing-unit) * 2) 0;
+  text-align: center;
+}
+
+.about-content {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 0rem;
+}
+
+.about-content h3 {
+  margin-bottom: 0rem;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-);
+}
+
+.contact-info {
+  margin-top: var(--spacing-unit);
+}
+
+.contact-info a {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+footer {
+  text-align: center;
+  margin-top: calc(var(--spacing-unit) * 2);
+  padding: var(--spacing-unit) 0;
+  opacity: 0.7;
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+.eyes-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: calc(var(--spacing-unit) * 2);
+  cursor: pointer;
+  position: relative;
+  margin-bottom: .75em;
+}
+
+.eye {
+  width: 40px;
+  height: 25px;
+  background: white;
+  border: 2px solid black;
+  border-radius: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pupil {
+  width: 10px;
+  height: 10px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.1s;
+}
+
+.text-box {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary-color);
+  color: var(--background-color);
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  z-index: 1000;
+}
+
+.text-box::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--primary-color);
+}
+
+.text-box.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --spacing-unit: 1.2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .work-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .work-image {
+    max-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: calc(var(--spacing-unit) * 0.8);
+  }
+
+  #work {
+    padding: var(--spacing-unit);
+  }
+}
