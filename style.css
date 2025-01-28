@@ -39,6 +39,7 @@ h1 {
   font-family: 'Apple Garamond', sans-serif;
   color: #121212;
   font-size: 8rem; /* Fixed font size */
+  text-align: center;
   font-weight: 800;
   letter-spacing: -0.02em;
   position: relative;
