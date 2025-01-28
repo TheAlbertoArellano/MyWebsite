@@ -325,7 +325,7 @@ body::before {
     repeating-conic-gradient(#000 0 0.0001%, #fff 0 0.0002%) 60% 60%/3000px 3000px;
   background-blend-mode: difference;
   animation: glitch 1s infinite;
-  opacity: 0.15;
+  opacity: 0.1;
   filter: url('#noise');
   z-index: 10000;
   /* Fallback for iOS */
