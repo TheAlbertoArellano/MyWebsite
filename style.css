@@ -328,4 +328,9 @@ body::before {
   opacity: 0.15;
   filter: url('#noise');
   z-index: 10000;
+  /* Fallback for iOS */
+  background-image: repeating-radial-gradient(#000 0 0.0001%, #fff 0 0.0002%), 
+                    repeating-conic-gradient(#000 0 0.0001%, #fff 0 0.0002%);
+  background-size: 3000px 3000px;
+  background-position: 60% 60%;
 }
