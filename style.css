@@ -1,3 +1,4 @@
+/* ===== Root Variables ===== */
 :root {
   --primary-color: #121212;
   --background-color: #fff;
@@ -5,6 +6,7 @@
   --max-width: 1000px;
 }
 
+/* ===== Global Styles ===== */
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  position: relative;
 }
 
 main {
@@ -28,6 +30,7 @@ main {
   max-width: var(--max-width);
 }
 
+/* ===== Header Styles ===== */
 header {
   text-align: center;
   margin: var(--spacing-unit) 0;
@@ -37,14 +40,18 @@ header {
 
 h1 {
   font-family: 'Apple Garamond', sans-serif;
-  color: #121212;
-  font-size: 6rem;
-  text-align: center;
+  color: var(--primary-color);
+  font-size: 19rem;
   font-weight: 800;
   letter-spacing: -0.02em;
-  display: block; /* Ensure block-level behavior */
-  line-height: 1;
+  line-height: 0.9;
   animation: glitch 1s infinite;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .subtitle {
@@ -56,56 +63,55 @@ h1 {
   margin-top: 2rem;
 }
 
+/* ===== About Section ===== */
+#about {
+  margin: calc(var(--spacing-unit) * 2) 0;
+  text-align: center;
+}
 
+.about-content {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.about-content h3 {
+  margin-bottom: 0rem;
+}
+
+.about-content p {
+  font-size: 1.5rem;
+  margin-bottom: calc(var(--spacing-unit) * 1.5);
+}
+
+/* ===== Work Section ===== */
 #work {
-  position: absolute; /* Starts below the visible screen */
-  top: 100vh; /* Positioned just below the viewport */
+  position: absolute;
+  top: 100vh;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
   background-color: var(--primary-color);
   color: var(--background-color);
-  width: 100vw; /* Full viewport width */
+  width: 100vw;
   padding: 0;
   text-align: center;
-  transition: transform 0.5s ease; /* Smooth reveal animation */
+  transition: transform 0.5s ease;
 }
 
 #work::before {
   content: '';
   display: block;
-  width: 100%; /* Adjust width as needed */
-  height: 100px; /* Adjust height as needed */
+  width: 100%;
+  height: 100px;
   background: url('face.png') no-repeat center center;
   background-size: contain;
   position: absolute;
-  top: -90px; /* Slightly overlaps the black background */
+  top: -90px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1; /* Ensures it appears above the black background */
+  z-index: 1;
 }
-
-#work .work-item p {
-  opacity: 0.7;
-}
-
-h3 {
-  font-size: 6rem;
-  margin-bottom: var((--spacing-unit) * 0.5);
-  font-weight: 800;
-  animation: glitch 1s infinite;
-}
-
-p {
-  font-size: 1.5rem;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  position: relative;
-  opacity: 0.8;
-  animation: glitch 1s infinite;
-}
-
 
 .work-grid {
   max-width: var(--max-width);
@@ -119,9 +125,71 @@ p {
   text-align: center;
 }
 
+.work-item a {
+  font-size: 1.5rem;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.work-item img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 5rem;
+}
+
+.work-item h4 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 0rem;
+  margin-top: 0rem;
+  animation: glitch 1s infinite;
+}
+
+.work-item p {
+  opacity: 0.7;
+  font-size: 1rem;
+  margin-bottom: 10rem;
+}
+
+/* ===== Typography ===== */
+h3 {
+  margin-top: 2rem;
+  font-size: 6rem;
+  margin-bottom: calc(var(--spacing-unit) * 0.5);
+  font-weight: 800;
+  animation: glitch 1s infinite;
+}
+
+p {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  position: relative;
+  opacity: 0.8;
+  animation: glitch 1s infinite;
+}
+
+/* ===== Hover Effects ===== */
+a {
+  color: var(--background-color);
+  margin-bottom: 9rem;
+}
+
+a:visited {
+  color: var(--background-color);
+}
+
+a:hover {
+  color: #38c7ff;
+}
+
 .work-image {
   aspect-ratio: 1;
-  margin-bottom: 0rem;
   transition: transform 0.3s ease;
   max-width: 100px;
   margin: 0 auto;
@@ -132,64 +200,11 @@ p {
   transform: scale(1.025);
 }
 
-/* Make sure links with images don't have extra styles */
-.work-item a {
-  display: block; /* Ensure the link takes up the full size of the image */
-  width: 100%;
-  height: 100%;
-  text-decoration: none; /* Remove the underline */
-  background: none; /* Remove any background */
-  border: none; /* Remove borders */
-  outline: none; /* Remove any outline (grey box) */
-}
-
-.work-item img {
-  width: 100%; /* Make sure images fill the container */
-  height: auto; /* Maintain aspect ratio */
-  margin-bottom: 8rem;
-}
-
-.work-item h4 {
-  color: #b6a2ff;
-  font-size: 1.5rem;
-  margin-bottom: 0.0rem;
-  margin-top: -1rem;
-  animation: glitch 1s infinite;
-}
-
-.work-item p {
-  
-  opacity: 0.7;
-  font-size: 1rem;
-  margin-bottom: 10rem;
-}
-
-#about {
-  margin: calc(var(--spacing-unit) * 2) 0;
-  text-align: center;
-}
-
-.about-content {
-  max-width: 500px;
-  margin: 0 auto;
-  margin-bottom: 0rem;
-}
-
-.about-content h3 {
-  margin-bottom: 0rem;
-}
-
-.about-content p {
-  font-size: 1.5rem;
-  margin-bottom: var(--spacing-unit*1.5);
-}
-
-
+/* ===== Media Queries ===== */
 @media (max-width: 768px) {
-
   h1 {
-    text-align: center;
-    margin-top: -5rem;
+    font-size: 10rem; /* Adjusts size for smaller screens */
+    max-width: 100vw;
   }
 
   .work-grid {
@@ -203,6 +218,11 @@ p {
 }
 
 @media (max-width: 480px) {
+  h1 {
+    font-size: 6rem; /* Further reduces size on mobile */
+    max-width: 100vw;
+  }
+
   body {
     padding: calc(var(--spacing-unit) * 0.8);
   }
@@ -212,53 +232,20 @@ p {
   }
 }
 
-/* Glitch Animation */
+/* ===== Animations ===== */
 @keyframes glitch {
-  0% {
-    text-shadow: 1px 0 rgba(0, 0, 0, 0.3), -1px 0 rgba(0, 0, 0, 0.3), 0 1px rgba(0, 0, 0, 0.3), 0 -1px rgba(0, 0, 0, 0.3);
-    transform: translate(-1px, -1px);
-  }
-  10% {
-    text-shadow: -1px 0 rgba(0, 0, 0, 0.3), 1px 0 rgba(0, 0, 0, 0.3), 0 1px rgba(0, 0, 0, 0.3), 0 -1px rgba(0, 0, 0, 0.3);
-    transform: translate(2px, 1px);
-  }
-  20% {
-    text-shadow: 1px 0 rgba(0, 0, 0, 0.3), -1px 0 rgba(0, 0, 0, 0.3), 0 1px rgba(0, 0, 0, 0.3), 0 -1px rgba(0, 0, 0, 0.3);
-    transform: translate(-2px, 0);
-  }
-  30% {
-    text-shadow: -1px 0 rgba(0, 0, 0, 0.3), 1px 0 rgba(0, 0, 0, 0.3), 0 1px rgba(0, 0, 0, 0.3), 0 -1px rgba(0, 0, 0, 0.3);
-    transform: translate(1px, 1px);
-  }
-  40% {
-    text-shadow: 1px 0 rgba(0, 0, 0, 0.3), -1px 0 rgba(0, 0, 0, 0.3), 0 1px rgba(0, 0, 0, 0.3), 0 -1px rgba(0, 0, 0, 0.3);
-    transform: translate(-1px, -1px);
-  }
-  50% {
-    text-shadow: -1px 0 rgba(0, 0, 0, 0.3), 1px 0 rgba(0, 0, 0, 0.3), 0 1px rgba(0, 0, 0, 0.3), 0 -1px rgba(0, 0, 0, 0.3);
-    transform: translate(2px, 0);
-  }
-  60% {
-    text-shadow: 1px 0 rgba(0, 0, 0, 0.3), -1px 0 rgba(0, 0, 0, 0.3), 0 1px rgba(0, 0, 0, 0.3), 0 -1px rgba(0, 0, 0, 0.3);
-    transform: translate(-2px, 1px);
-  }
-  100% {
-    text-shadow: -1px 0 rgba(0, 0, 0, 0.3), 1px 0 rgba(0, 0, 0, 0.3), 0 1px rgba(0, 0, 0, 0.3), 0 -1px rgba(0, 0, 0, 0.3);
-    transform: translate(0, 0);
-  }
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(2px, 1px); }
+  20% { transform: translate(-2px, 0); }
+  30% { transform: translate(1px, 1px); }
+  40% { transform: translate(-1px, -1px); }
+  50% { transform: translate(2px, 0); }
+  60% { transform: translate(-2px, 1px); }
 }
 
-/* Flicker Animation */
 @keyframes flicker {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.95;
-  }
-}
-body {
-  position: relative;
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.95; }
 }
 
 body::before {
@@ -269,12 +256,10 @@ body::before {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  background: 
-    repeating-radial-gradient(#000 0 0.0001%, #fff 0 0.0002%) 60% 60%/3000px 3000px,
-    repeating-conic-gradient(#000 0 0.0001%, #fff 0 0.0002%) 60% 60%/3000px 3000px;
+  background: repeating-radial-gradient(#000 0 0.0001%, #fff 0 0.0002%) 60% 60%/3000px 3000px,
+              repeating-conic-gradient(#000 0 0.0001%, #fff 0 0.0002%) 60% 60%/3000px 3000px;
   background-blend-mode: difference;
   animation: glitch 1s infinite;
   opacity: 0.15;
-  
   z-index: 10000;
 }
