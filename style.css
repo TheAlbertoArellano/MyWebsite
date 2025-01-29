@@ -45,13 +45,13 @@ h1 {
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 0.9;
-  animation: glitch 1s infinite;
   width: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  animation: glitch 1s infinite;
 }
 
 .subtitle {
@@ -61,7 +61,6 @@ h1 {
   position: relative;
   opacity: 0.8;
   margin-top: -1rem;
-  animation: glitch 1s infinite;
 }
 
 /* ===== Work Section ===== */
@@ -124,14 +123,12 @@ h3 {
   margin-bottom: calc(var(--spacing-unit) * 0.5);
   letter-spacing: -0.02em;
   font-weight: 800;
-  animation: glitch 1s infinite;
 }
 
 /* ===== Hover Effects ===== */
 a {
   color: var(--background-color);
   margin-bottom: 9rem;
-  animation: glitch 1s infinite;
 }
 
 a:visited {
@@ -212,6 +209,39 @@ a:hover {
   }
 }
 
+
+/* ===== Animations ===== */
+@keyframes glitch {
+  0%, 100% { 
+    transform: translate(0, 0); 
+    -webkit-transform: translate(0, 0);
+  }
+  10% { 
+    transform: translate(2px, 1px);
+    -webkit-transform: translate(2px, 1px);
+  }
+  20% { 
+    transform: translate(-2px, 0);
+    -webkit-transform: translate(-2px, 0);
+  }
+  30% { 
+    transform: translate(1px, 1px);
+    -webkit-transform: translate(1px, 1px);
+  }
+  40% { 
+    transform: translate(-1px, -1px);
+    -webkit-transform: translate(-1px, -1px);
+  }
+  50% { 
+    transform: translate(2px, 0);
+    -webkit-transform: translate(2px, 0);
+  }
+  60% { 
+    transform: translate(-2px, 1px);
+    -webkit-transform: translate(-2px, 1px);
+  }
+}
+
 body::before {
   content: '';
   position: fixed;
@@ -226,6 +256,7 @@ body::before {
               repeating-conic-gradient(#000 0 0.0001%, #fff 0 0.0002%) 60% 60%/3000px 3000px;
   -webkit-background-blend-mode: difference;
   background-blend-mode: difference;
-  opacity: 0.075;
+  /* animation: glitch 1s infinite; */
+  opacity: 0.12;
   z-index: 10000;
 }
