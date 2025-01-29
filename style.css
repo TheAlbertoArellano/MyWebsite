@@ -1,50 +1,196 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Very Cool Website</title>
-  
-  <!-- External Stylesheets -->
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap">
-  <link href="https://fonts.cdnfonts.com/css/apple-garamond" rel="stylesheet">
-</head>
-<body>
-  
-  <!-- Header Section -->
-  <header>
-    <h1>ALBERTO</h1>
-    <h1>ARELLANO</h1>
-    <p class="subtitle">Computer man (º﹃º)</p>
-  </header>
-  
-  <main>
-    <!-- Links Section -->
-    <section id="work">
-      <h3>LINKS</h3>
-      <div class="work-grid">
-        <article class="work-item">
-          <a href="https://www.github.com" target="_blank" rel="noopener noreferrer">GitHub - Coding stuff</a>
-        </article>
-        
-        <article class="work-item">
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn - Job stuff</a>
-        </article>
-        
-        <article class="work-item">
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram - Photo stuff</a>
-        </article>
-        
-        <article class="work-item">
-          <a href="#">??? - ¯\_(ツ)_/¯</a>
-        </article>
-      </div>  
-    </section>
-  </main>
-  
-  <!-- External JavaScript -->
-  <script src="script.js"></script>
-  
-</body>
-</html>
+/* ===== Root Variables ===== */
+:root {
+  --primary-color: #121212;
+  --background-color: #fff;
+  --spacing-unit: 3.5rem;
+  --max-width: 1000px;
+}
+
+/* ===== Global Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Apple Garamond', sans-serif;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  line-height: 1.6;
+  padding: var(--spacing-unit);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+main {
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+/* ===== Header Styles ===== */
+header {
+  text-align: center;
+  margin: var(--spacing-unit) 0;
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+h1 {
+  font-family: 'Apple Garamond', sans-serif;
+  color: var(--primary-color);
+  font-size: 19rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  animation: glitch 1s infinite;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  position: relative;
+  opacity: 0.8;
+  margin-top: 2rem;
+  animation: glitch 1s infinite;
+}
+
+/* ===== Work Section ===== */
+#work {
+  position: absolute;
+  top: 100vh;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  width: 100vw;
+  padding: 0;
+  text-align: center;
+  transition: transform 0.5s ease;
+}
+
+#work::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100px;
+  background: url('face.png') no-repeat center center;
+  background-size: contain;
+  position: absolute;
+  top: -90px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.work-grid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-unit);
+}
+
+.work-item {
+  text-align: center;
+}
+
+.work-item a {
+  font-size: 1.5rem;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* ===== Typography ===== */
+h3 {
+  margin-top: 2rem;
+  font-size: 6rem;
+  margin-bottom: calc(var(--spacing-unit) * 0.5);
+  font-weight: 800;
+  animation: glitch 1s infinite;
+}
+
+/* ===== Hover Effects ===== */
+a {
+  color: var(--background-color);
+  margin-bottom: 9rem;
+  animation: glitch 1s infinite;
+}
+
+a:visited {
+  color: var(--background-color);
+}
+
+a:hover {
+  color: #38c7ff;
+}
+
+/* ===== Media Queries ===== */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 10rem;
+    max-width: 100vw;
+  }
+
+  .work-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 6rem;
+    max-width: 100vw;
+  }
+
+  body {
+    padding: calc(var(--spacing-unit) * 0.8);
+  }
+
+  #work {
+    padding: var(--spacing-unit);
+  }
+}
+
+/* ===== Animations ===== */
+@keyframes glitch {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(2px, 1px); }
+  20% { transform: translate(-2px, 0); }
+  30% { transform: translate(1px, 1px); }
+  40% { transform: translate(-1px, -1px); }
+  50% { transform: translate(2px, 0); }
+  60% { transform: translate(-2px, 1px); }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: repeating-radial-gradient(#000 0 0.0001%, #fff 0 0.0002%) 60% 60%/3000px 3000px,
+              repeating-conic-gradient(#000 0 0.0001%, #fff 0 0.0002%) 60% 60%/3000px 3000px;
+  background-blend-mode: difference;
+  animation: glitch 1s infinite;
+  opacity: 0.15;
+  z-index: 10000;
+}
