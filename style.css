@@ -190,7 +190,6 @@ body::before {
   background: repeating-radial-gradient(#000 0 0.0001%, #fff 0 0.0002%) 60% 60%/3000px 3000px,
               repeating-conic-gradient(#000 0 0.0001%, #fff 0 0.0002%) 60% 60%/3000px 3000px;
   background-blend-mode: difference;
-  animation: glitch 1s infinite;
   opacity: 0.075;
   z-index: 10000;
 }
