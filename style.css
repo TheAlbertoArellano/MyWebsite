@@ -168,50 +168,6 @@ a:hover {
 
 /* ===== Animations ===== */
 @keyframes glitch {
-  0%, 100% { transform: translate(0, 0); }
-  10% { transform: translate(2px, 1px); }
-  20% { transform: translate(-2px, 0); }
-  30% { transform: translate(1px, 1px); }
-  40% { transform: translate(-1px, -1px); }
-  50% { transform: translate(2px, 0); }
-  60% { transform: translate(-2px, 1px); }
-}
-
-/* ===== Animations ===== */
-@keyframes glitch {
-  0%, 100% { 
-    transform: translate(0, 0); 
-    -webkit-transform: translate(0, 0);
-  }
-  10% { 
-    transform: translate(2px, 1px);
-    -webkit-transform: translate(2px, 1px);
-  }
-  20% { 
-    transform: translate(-2px, 0);
-    -webkit-transform: translate(-2px, 0);
-  }
-  30% { 
-    transform: translate(1px, 1px);
-    -webkit-transform: translate(1px, 1px);
-  }
-  40% { 
-    transform: translate(-1px, -1px);
-    -webkit-transform: translate(-1px, -1px);
-  }
-  50% { 
-    transform: translate(2px, 0);
-    -webkit-transform: translate(2px, 0);
-  }
-  60% { 
-    transform: translate(-2px, 1px);
-    -webkit-transform: translate(-2px, 1px);
-  }
-}
-
-
-/* ===== Animations ===== */
-@keyframes glitch {
   0%, 100% { 
     transform: translate(0, 0); 
     -webkit-transform: translate(0, 0);
@@ -256,7 +212,6 @@ body::before {
               repeating-conic-gradient(#000 0 0.0001%, #fff 0 0.0002%) 60% 60%/3000px 3000px;
   -webkit-background-blend-mode: difference;
   background-blend-mode: difference;
-  /* animation: glitch 1s infinite; */
-  opacity: 0.12;
+  opacity: 0.1;
   z-index: 10000;
 }
